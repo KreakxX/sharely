@@ -20,10 +20,11 @@ import {
   VideoOff,
 } from "lucide-react";
 import { useState, useRef } from "react";
+import { generateSessionCode } from "../node_api/Sharing";
 
 export default function StreamView() {
   const [isStreaming, setIsStreaming] = useState(false);
-
+  const [sessionCode, setSessionCode] = useState<number | null>(null);
   const streamRef = useRef<HTMLDivElement>(null);
 
   const handleSelectScreen = () => {
@@ -36,6 +37,10 @@ export default function StreamView() {
         <CardContent className="relative">
           <div className="absolute top-6 right-6 gap-2 flex justify-between z-10">
             <Button
+              onClick={async () => {
+                const sessionCode = await generateSessionCode();
+                setSessionCode(sessionCode);
+              }}
               variant="outline"
               className="bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100 transition-all"
             >
@@ -62,6 +67,7 @@ export default function StreamView() {
             </CardTitle>
             <CardDescription className="text-zinc-500 text-sm">
               Share your screen and collaborate in real-time
+              {sessionCode ? <h1>{sessionCode}</h1> : null}
             </CardDescription>
           </CardHeader>
 
