@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Header from "./components/header";
 import Background from "./components/background";
 import Chat from "./components/Chat";
 import StreamView from "./components/StreamView";
@@ -8,7 +7,6 @@ export default function Home() {
   return (
     <div className="relative w-full h-screen ">
       <Background />
-      <Header />
       <div className="flex justify-between w-full gap-3 bg-[#030303] px-10 ">
         <StreamView />
         <Chat />

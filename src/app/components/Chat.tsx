@@ -62,8 +62,8 @@ export default function Chat() {
   };
 
   return (
-    <div className="bg-[#030303] flex justify-end mb-10">
-      <Card className="bg-zinc-950 max-w-[30vw] min-w-[30vw] border border-zinc-800 shadow-xl">
+    <div className="bg-[#030303] flex justify-end mt-[20vh]">
+      <Card className="bg-zinc-950 max-w-[25vw] min-w-[25vw] border border-zinc-800 shadow-xl">
         <CardHeader className="border-b border-zinc-800/50 pb-4">
           <CardTitle className="text-zinc-100 font-semibold">Chat</CardTitle>
           <CardDescription className="text-zinc-500 text-sm">
