@@ -68,7 +68,7 @@ export default function StreamView() {
           <div className="mt-6">
             <Card
               ref={streamRef}
-              className="bg-zinc-900 border-zinc-800 min-h-[65vh] relative overflow-hidden group"
+              className="bg-zinc-900 border-zinc-800 min-h-[71vh] relative overflow-hidden group"
             >
               <div className="absolute inset-0 flex items-center justify-center">
                 {isStreaming ? (
@@ -114,24 +114,6 @@ export default function StreamView() {
                 </div>
               )}
             </Card>
-
-            <div className="mt-4 flex items-center justify-between text-sm">
-              <div className="flex items-center gap-2">
-                <div
-                  className={`w-2 h-2 rounded-full ${
-                    isStreaming ? "bg-green-500 animate-pulse" : "bg-zinc-700"
-                  }`}
-                />
-                <span className="text-zinc-500">
-                  {isStreaming ? "Live" : "Not streaming"}
-                </span>
-              </div>
-              {isStreaming && (
-                <span className="text-zinc-600 text-xs">
-                  Hover over stream to show controls
-                </span>
-              )}
-            </div>
           </div>
         </CardContent>
       </Card>
