@@ -31,8 +31,8 @@ export default function StreamView() {
   };
 
   return (
-    <div className="bg-[#030303] flex w-full mt-[20vh]">
-      <Card className="bg-zinc-950 border ] min-w-full border-zinc-800 shadow-xl">
+    <div className="bg-[#030303] flex w-full mt-[10vh]">
+      <Card className="bg-zinc-950 border ]  min-w-full border-zinc-800 shadow-xl">
         <CardContent className="relative">
           <div className="absolute top-6 right-6 gap-2 flex justify-between z-10">
             <Button
@@ -68,7 +68,7 @@ export default function StreamView() {
           <div className="mt-6">
             <Card
               ref={streamRef}
-              className="bg-zinc-900 border-zinc-800 min-h-[55vh] relative overflow-hidden group"
+              className="bg-zinc-900 border-zinc-800 min-h-[65vh] relative overflow-hidden group"
             >
               <div className="absolute inset-0 flex items-center justify-center">
                 {isStreaming ? (

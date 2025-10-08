@@ -62,7 +62,7 @@ export default function Chat() {
   };
 
   return (
-    <div className="bg-[#030303] flex justify-end mt-[20vh]">
+    <div className="bg-[#030303] flex justify-end mt-[10vh]">
       <Card className="bg-zinc-950 max-w-[25vw] min-w-[25vw] border border-zinc-800 shadow-xl">
         <CardHeader className="border-b border-zinc-800/50 pb-4">
           <CardTitle className="text-zinc-100 font-semibold">Chat</CardTitle>
@@ -71,8 +71,7 @@ export default function Chat() {
           </CardDescription>
         </CardHeader>
         <CardContent className="p-0">
-          {/* <CHANGE> Added message display area with proper styling */}
-          <ScrollArea className="h-[45vh] p-4">
+          <ScrollArea className="h-[59vh] p-4">
             <div className="space-y-4">
               {messages.map((msg) => (
                 <div
