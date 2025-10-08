@@ -15,7 +15,7 @@ const pacifico = Pacifico({
 
 export default function Header() {
   return (
-    <div className="min-h-screen flex justify-center ">
+    <div className="mb-[20vh] flex justify-center ">
       <div className="mt-[20vh]">
         <div className="absolute top-5 right-5 flex justify-between gap-3">
           <Button className="bg-zinc-950 border border-zinc-800">

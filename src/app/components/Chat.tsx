@@ -17,7 +17,7 @@ import { ArrowRight, Plus } from "lucide-react";
 
 export default function Chat() {
   return (
-    <div className="bg-[#030303]  flex justify-end">
+    <div className="bg-[#030303]  flex justify-end mb-10">
       <Card className="bg-zinc-950 max-w-[30vw] min-w-[30vw] border border-zinc-800 ">
         <CardContent>
           <CardHeader>

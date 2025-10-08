@@ -14,16 +14,21 @@ import {
   InputGroupTextarea,
 } from "@/components/ui/input-group";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
-import { ArrowRight, Plus } from "lucide-react";
+import { ArrowRight, Plus, ScreenShare } from "lucide-react";
 
 export default function StreamView() {
   return (
-    <div className="bg-[#030303] flex w-full">
+    <div className="bg-[#030303] flex w-full mb-10">
       <Card className="bg-zinc-950 border min-w-full border-zinc-800 ">
         <CardContent className="relative">
-          <Button className="absolute  right-5">
-            <Plus /> invite Team Members
-          </Button>
+          <div className="absolute  right-5 gap-2 flex justify-between">
+            <Button>
+              <Plus /> invite Team Members
+            </Button>
+            <Button>
+              <ScreenShare /> Select Screen
+            </Button>
+          </div>
           <CardHeader>
             <CardTitle className="text-zinc-400">Stream</CardTitle>
             <CardDescription className="text-zinc-400">

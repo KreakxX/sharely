@@ -9,7 +9,7 @@ export default function Home() {
     <div className="relative w-full h-screen ">
       <Background />
       <Header />
-      <div className="flex justify-between w-full gap-3 bg-[#030303] ">
+      <div className="flex justify-between w-full gap-3 bg-[#030303] px-10 ">
         <StreamView />
         <Chat />
       </div>
