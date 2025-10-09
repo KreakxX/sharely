@@ -34,12 +34,13 @@ wss.on("connection",(ws)=>{
         join_session(ws,message);
         break;
       case 'leave_session':
+        leave_session(ws,message);
         break;
       case 'send_message':
-        break;
-      case 'delete_message':
+        sendMessage(ws,message);
         break;
       case 'upload_image':
+        upload_image(ws,message);
         break;
     }
   })
@@ -80,5 +81,77 @@ function join_session(ws,data){
     type: 'session_joined',
     messages: sessions[sessionCode].messages
   }))
+}
+
+function leave_session(ws,data){
+  const sessionCode = data.sessionCode;
+
+  // if no Session with the Code than stop
+  if(!sessionCode || !sessions[sessionCode]){
+    return;
+  }
+
+ // remove the client from the session
+ sessions[sessionCode].clients = sessions[sessionCode].clients.filter((client) => client.username !== ws.username)
+}
+
+function sendMessage(ws,data){
+  const sessionCode = data.sessionCode;
+
+  // if no Session with the Code than stop
+  if(!sessionCode || !sessions[sessionCode]){
+    return;
+  }
+
+  // Create Chat Message Object
+  const chatMessage = {
+    type: 'chat_message',
+    username: ws.username,
+    message: data.message,
+    timeStamp: new Date().toISOString()
+  };
+
+  // append to the old Messages
+  sessions[sessionCode].messages.push(chatMessage)
+
+  // send the new Message to all the Clients
+  broadCastToSession(sessionCode,chatMessage,ws);
+
+}
+
+
+function upload_image(ws,data){
+  const sessionCode = data.sessionCode;
+
+  // if no Session with the Code than stop
+  if(!sessionCode || !sessions[sessionCode]){
+    return;
+  }
+
+  // Create Chat Message Object
+  const chatMessage = {
+    type: 'chat_message',
+    username: ws.username,
+    message: data.message,
+    image: data.image,
+    timeStamp: new Date().toISOString()
+  };
+
+  // append to the old Messages
+  sessions[sessionCode].messages.push(chatMessage)
+
+  // send the new Message to all the Clients
+  broadCastToSession(sessionCode,chatMessage,ws);
+}
+
+
+function broadCastToSession(sessionCode, message, excludeClient = null) {
+  if (!sessions[sessionCode]) return;
+
+  sessions[sessionCode].clients.forEach(client => {
+    if (client !== excludeClient && client.readyState === WebSocket.OPEN) {
+      client.send(JSON.stringify(message));
+    }
+  });
 }
 
