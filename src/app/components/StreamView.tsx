@@ -36,6 +36,11 @@ export default function StreamView() {
       <Card className="bg-zinc-950 border ]  min-w-full border-zinc-800 shadow-xl">
         <CardContent className="relative">
           <div className="absolute top-6 right-6 gap-2 flex justify-between z-10">
+            {sessionCode ? (
+              <Button className="bg-blue-600   ">
+                <h1 className="text-zinc-300">{sessionCode}</h1>
+              </Button>
+            ) : null}
             <Button
               onClick={async () => {
                 const sessionCode = await generateSessionCode();
@@ -47,6 +52,7 @@ export default function StreamView() {
               <Plus className="h-4 w-4" />
               Invite Team
             </Button>
+
             <Button
               onClick={handleSelectScreen}
               variant={isStreaming ? "destructive" : "default"}
@@ -67,7 +73,6 @@ export default function StreamView() {
             </CardTitle>
             <CardDescription className="text-zinc-500 text-sm">
               Share your screen and collaborate in real-time
-              {sessionCode ? <h1>{sessionCode}</h1> : null}
             </CardDescription>
           </CardHeader>
 
