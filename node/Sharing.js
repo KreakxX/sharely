@@ -1,7 +1,6 @@
 // import WebSocket, { WebSocketServer } from 'ws';
 // const websocketServer = new WebSocketServer({port: 8000})
 
-let StreamingSessions = {}
 let SessionCodes = []
 
 // function for generating the SessionCode, so people can share and join Sessions
@@ -16,4 +15,20 @@ export function GenerateSessionCode(){
     }
   }
 }
+
+import WebSocket, { WebSocketServer } from 'ws';
+const wss = new WebSocketServer({ port: 8080 });
+
+const sessions = {}
+
+// when a client (ws) joins the websocketServer
+wss.on("connection",(ws)=>{
+  ws.on("message",(data)=>{
+    const message = JSON.parse(data.toString());
+    switch (message.type){
+      case 'send_message':
+        break;
+    }
+  })
+})
 
