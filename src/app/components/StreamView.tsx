@@ -18,6 +18,7 @@ import {
   MicOff,
   Video,
   VideoOff,
+  Copy,
 } from "lucide-react";
 import { useState, useRef } from "react";
 import { generateSessionCode } from "../node_api/Sharing";
@@ -39,6 +40,7 @@ export default function StreamView() {
             {sessionCode ? (
               <Button className="bg-blue-600   ">
                 <h1 className="text-zinc-300">{sessionCode}</h1>
+                <Copy className="text-zinc-300"></Copy>
               </Button>
             ) : null}
             <Button
